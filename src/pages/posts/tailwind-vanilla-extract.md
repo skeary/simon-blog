@@ -1,4 +1,5 @@
 ---
+
 title: "Extending Tailwind CSS with Vanilla Extract"
 description: "Using Vanilla Extract with Tailwind CSS to support class variants and leverage the value of both frameworks."
 date: "2022-05-31"
@@ -15,7 +16,7 @@ layout: "../../layouts/BlogPostLayout.astro"
 </button>
 ```
 
-![Click me button](../../../public/images/tailwind-vanilla/click-me-btn.png)
+![Click me button](/images/tailwind-vanilla/click-me-btn.png)
 
 On the other hand, Vanilla Extract provides none of these utility classes, but it perhaps does provide a more configurable and extendable approach for building your own styling framework. In particular, Vanilla Extract provides a simple to use approach for what they describe as [type-safe multi-variant](https://vanilla-extract.style/documentation/recipes-api/) styles, which is something not directly provided by Tailwind.
 
