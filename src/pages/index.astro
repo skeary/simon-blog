@@ -29,7 +29,17 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new 
         <section class="mt-12 leading-loose max-w-md mx-auto grid gap-4">
           <p>Hi, I'm Simon. I'm a Software Engineer and for the last 20(!) years I've had roles ranging from Senior Engineer to Technical Lead to Software Department Manager.
            </p>
-           <p>I enjoy learning about both frontend and backend technologies and programming in general. I've most recently been working hands on with Node.js/React/TypeScript, as well as various other backend cloud technologies and tools (Docker, Linux, AWS, SQL/NoSQL databses).</p>
+           <p>
+           Things I love:
+           </p>
+           <ul>
+
+            <li>👨‍💻  Node.js/React/TypeScript + backend cloud technologies/tools (Docker, Linux, AWS, SQL/NoSQL databases)</li>
+            <li>🤔  Learning about frontend and backend tech</li>
+            <li>🧰 Programming and making quality things, in general</li>
+            <li>🚴‍♂️ Music, cycling, not driving</li>
+
+            </ul>
         </section>
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8" data-test="articles-section">
           {allPosts.map(p => <div class="col-span-1"><Card frontmatter={p.frontmatter} url={p.url} /></div>)}
