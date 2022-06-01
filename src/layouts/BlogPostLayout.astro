@@ -1,0 +1,34 @@
+---
+import Nav from '../components/Nav.astro';
+import BaseHead from '../components/Head/BaseHead.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const {content } = Astro.props;
+const {title, description, date, hero, youtube } = content;
+
+console.log( Astro.props)
+---
+<html lang={ content.lang || 'en' }>
+  <head>
+    <BaseHead title={title} description={description}/>
+  </head>
+
+  <body>
+    <Nav />
+    <main class="py-12 lg:py-20">
+      <BlogPost title={title} hero={hero} date={date} youtube={youtube} >
+        <slot />
+      </BlogPost>
+    </main>
+    <section>
+    <script src="https://utteranc.es/client.js"
+        repo="skeary/simon-blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    </section>
+  </body>
+</html>
+

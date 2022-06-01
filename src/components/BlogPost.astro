@@ -1,0 +1,115 @@
+---
+import dayjs from "dayjs";
+
+export interface Props {
+  title: string;
+  date: string;
+  hero: string;
+  youtube: string;
+}
+
+const { title, date, hero, youtube } = Astro.props;
+---
+
+<style>
+  section.content :global(h1),
+  header :global(h1) {
+    @apply font-display uppercase font-bold leading-none;
+
+    font-size: min(max(3rem, 6.25vw), 7rem);
+
+    @supports (font-size: clamp(3rem, 6.25vw, 7rem)) {
+      font-size: clamp(3rem, 6.25vw, 7rem);
+    }
+  }
+
+  section.content :global(h2) {
+    @apply text-4xl font-normal leading-none mt-12 py-6 tracking-tight;
+  }
+
+  section.content :global(h3) {
+    @apply text-xl font-normal leading-none py-6;
+  }
+
+  section.content :global(h4) {
+    @apply font-normal uppercase tracking-widest leading-none py-6;
+  }
+
+  section.content :global(p) {
+    @apply leading-relaxed;
+    margin-bottom: 2em;
+  }
+
+
+  section.content :global(blockquote) {
+    @apply text-center font-normal italic px-4 mb-12 pt-6;
+  }
+
+  section.content :global(blockquote > p) {
+    @apply text-3xl leading-tight;
+  }
+
+
+  section.content :global(img) {
+    @apply my-12;
+  }
+
+  section.content :global(a) {
+    @apply underline text-hot-pink;
+
+  }
+
+  section.content :global(a:hover) {
+    @apply text-black;
+  }
+
+
+  section.content :global(ul:not(.list-none)) {
+    @apply pl-0 list-disc ml-10 mb-8;
+  }
+
+
+  section.content :global(ul:not(.list-none) li) {
+    @apply mb-1;
+  }
+
+
+  section.content :global(ol) {
+    @apply pl-0 list-decimal ml-10 mb-8;
+  }
+
+  section.content :global(ol li) {
+    @apply mb-1;
+  }
+
+  section.content :global(.astro-code) {
+    @apply p-4 mb-8 rounded-md shadow-md
+  }
+</style>
+
+
+
+
+<article class="max-w-5xl mx-auto px-3">
+  <header class="mx-auto max-w-3xl text-center content mb-8">
+    <h1>{title}</h1>
+    <section>{dayjs(date).format('DD MMM YYYY')}</section>
+  </header>
+
+
+  <!-- Image -->
+  {hero && <img class="rounded-xl mx-auto" style="min-width: 80%;" loading="lazy" src={hero} alt={title} />}
+
+  <!-- YouTube Video -->
+  {youtube && <div class="embed-responsive aspect-ratio-16/9 mt-6 lg:mt-12">
+    <iframe width="700" height="500" class="embed-responsive-item"
+      src={`https://www.youtube.com/embed/${youtube}`} frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen></iframe>
+  </div>}
+
+  <!-- Content -->
+  <section class="max-w-3xl mx-auto py-6 lg:py-12 content">
+    <slot />
+  </section>
+
+</article>
