@@ -6,7 +6,9 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+
   integrations: [tailwind({})],
+  site: 'https://simonkeary.dev',
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
