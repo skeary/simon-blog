@@ -47,7 +47,7 @@ let seoDescription = '';
       <article class="max-w-6xl mx-auto px-3">
         <HomeHeader title={pageTitle} description={pageDescription} />
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8" data-test="articles-section">
-          {page.data.map(p => <div class="col-span-1"><Card post={p} /></div>)}
+          {page.data.map(p => <div class="col-span-1"><Card frontmatter={p.frontmatter} url={p.url} /></div>)}
         </section>
       </article>
     </main>
